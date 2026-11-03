@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="tiktok-developers-site-verification" content="rB8xabKxFpR7xWRu5mvw08HaCvhsLQtS">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Buddy4Free Publisher</title>
+<style>:root{color-scheme:dark}body{margin:0;background:#0E1320;color:#E8EAF0;font:16px/1.6 system-ui,sans-serif}main{max-width:640px;margin:0 auto;padding:32px 16px}h1{color:#FFC83D;font-size:1.5rem}code{display:block;background:#18203A;border:1px solid #2A3348;border-radius:10px;padding:12px;word-break:break-all;font-size:15px}button{margin-top:12px;background:#FFC83D;color:#0E1320;border:0;border-radius:999px;padding:10px 20px;font-weight:700;font-size:15px}a{color:#FFC83D}</style>
+</head>
+<body><main>
+<h1>Buddy4Free Publisher</h1>
+<div id="out"><p>Strumento privato per pubblicare i video di Buddy4Free su TikTok. <a href="termini.html">Termini</a> · <a href="privacy.html">Privacy</a></p></div>
+<script>
+(function () {
+  var p = new URLSearchParams(location.search), out = document.getElementById('out');
+  if (p.get('error')) { out.innerHTML = '<p>TikTok ha risposto con un errore: <b></b></p>'; out.querySelector('b').textContent = p.get('error') + ' ' + (p.get('error_description') || ''); return; }
+  var c = p.get('code'); if (!c) return;
+  out.innerHTML = '<p>Autorizzazione riuscita. Copia questo codice e incollalo nella chat con Claude <b>entro 5 minuti</b> (vale una sola volta e non funziona senza la chiave segreta dell’app):</p><code id="c"></code><button id="b">Copia il codice</button>';
+  document.getElementById('c').textContent = c;
+  document.getElementById('b').onclick = function () { navigator.clipboard.writeText(c).then(function () { document.getElementById('b').textContent = 'Copiato ✓'; }); };
+})();
+</script>
+</main></body></html>
